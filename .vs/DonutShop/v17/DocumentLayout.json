@@ -1,0 +1,104 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\btadissin\\DonutShop_Project\\DonutShop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7A6762E7-4CFA-4BAA-B350-55087F21A06D}|DonutShop\\DonutShop.csproj|c:\\users\\btadissin\\donutshop_project\\donutshop\\donutshop\\shared\\customizingorder.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7A6762E7-4CFA-4BAA-B350-55087F21A06D}|DonutShop\\DonutShop.csproj|solutionrelative:donutshop\\shared\\customizingorder.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A6762E7-4CFA-4BAA-B350-55087F21A06D}|DonutShop\\DonutShop.csproj|c:\\users\\btadissin\\donutshop_project\\donutshop\\donutshop\\pages\\menu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7A6762E7-4CFA-4BAA-B350-55087F21A06D}|DonutShop\\DonutShop.csproj|solutionrelative:donutshop\\pages\\menu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A6762E7-4CFA-4BAA-B350-55087F21A06D}|DonutShop\\DonutShop.csproj|c:\\users\\btadissin\\donutshop_project\\donutshop\\donutshop\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{7A6762E7-4CFA-4BAA-B350-55087F21A06D}|DonutShop\\DonutShop.csproj|solutionrelative:donutshop\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A6762E7-4CFA-4BAA-B350-55087F21A06D}|DonutShop\\DonutShop.csproj|c:\\users\\btadissin\\donutshop_project\\donutshop\\donutshop\\services\\orderstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A6762E7-4CFA-4BAA-B350-55087F21A06D}|DonutShop\\DonutShop.csproj|solutionrelative:donutshop\\services\\orderstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CustomizingOrder.razor",
+              "DocumentMoniker": "C:\\Users\\btadissin\\DonutShop_Project\\DonutShop\\DonutShop\\Shared\\CustomizingOrder.razor",
+              "RelativeDocumentMoniker": "DonutShop\\Shared\\CustomizingOrder.razor",
+              "ToolTip": "C:\\Users\\btadissin\\DonutShop_Project\\DonutShop\\DonutShop\\Shared\\CustomizingOrder.razor",
+              "RelativeToolTip": "DonutShop\\Shared\\CustomizingOrder.razor",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAADIAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-08T08:54:31.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrderState.cs",
+              "DocumentMoniker": "C:\\Users\\btadissin\\DonutShop_Project\\DonutShop\\DonutShop\\Services\\OrderState.cs",
+              "RelativeDocumentMoniker": "DonutShop\\Services\\OrderState.cs",
+              "ToolTip": "C:\\Users\\btadissin\\DonutShop_Project\\DonutShop\\DonutShop\\Services\\OrderState.cs",
+              "RelativeToolTip": "DonutShop\\Services\\OrderState.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-08T08:52:52.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\btadissin\\DonutShop_Project\\DonutShop\\DonutShop\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "DonutShop\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\btadissin\\DonutShop_Project\\DonutShop\\DonutShop\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "DonutShop\\wwwroot\\css\\site.css",
+              "ViewState": "AQIAAL0CAAAAAAAAAAAAwNcCAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-03-08T08:43:29.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Menu.razor",
+              "DocumentMoniker": "C:\\Users\\btadissin\\DonutShop_Project\\DonutShop\\DonutShop\\Pages\\Menu.razor",
+              "RelativeDocumentMoniker": "DonutShop\\Pages\\Menu.razor",
+              "ToolTip": "C:\\Users\\btadissin\\DonutShop_Project\\DonutShop\\DonutShop\\Pages\\Menu.razor",
+              "RelativeToolTip": "DonutShop\\Pages\\Menu.razor",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABMAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-08T08:43:23.517Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
