@@ -1,0 +1,37 @@
+﻿@page "/menu"
+@layout MainLayout 
+@inject NavigationManager NavigationManager
+
+
+<div class="main">
+
+    <ul class="pizza-cards">
+        @if(donutSpecials !=null)
+        {
+            @foreach (special in donutSpecial )
+            {
+                <li @onclick="@(() => OrderState.ShowConfigurePizzaDialog(special))" style="background-image: url('@special.ImageUrl')">
+                    <div class="pizza-info">
+                        <span class="title">@special.Name</span>
+                        @special.Description
+                        <span class="price">@special.GetFormattedBasePrice()</span>
+                    </div>
+                </li>
+            }
+        }
+    </ul>
+
+</div>
+
+
+
+
+@code {
+
+    List<DonutSpecial> donutSpecials = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        donutSpecials = await HttpClient.GetFromJsonAsync<List<DonutSpecial>>(NavigationManager.BaseUri + "donutSpecials");
+    }
+}

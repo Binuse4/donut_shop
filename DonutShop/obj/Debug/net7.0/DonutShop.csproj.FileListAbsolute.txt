@@ -1,0 +1,8 @@
+C:\Users\btadissin\DonutShop_Project\DonutShop\DonutShop\obj\Debug\net7.0\DonutShop.csproj.AssemblyReference.cache
+C:\Users\btadissin\DonutShop_Project\DonutShop\DonutShop\obj\Debug\net7.0\DonutShop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\btadissin\DonutShop_Project\DonutShop\DonutShop\obj\Debug\net7.0\DonutShop.AssemblyInfoInputs.cache
+C:\Users\btadissin\DonutShop_Project\DonutShop\DonutShop\obj\Debug\net7.0\DonutShop.AssemblyInfo.cs
+C:\Users\btadissin\DonutShop_Project\DonutShop\DonutShop\obj\Debug\net7.0\DonutShop.csproj.CoreCompileInputs.cache
+C:\Users\btadissin\DonutShop_Project\DonutShop\DonutShop\obj\Debug\net7.0\DonutShop.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\btadissin\DonutShop_Project\DonutShop\DonutShop\obj\Debug\net7.0\DonutShop.RazorAssemblyInfo.cache
+C:\Users\btadissin\DonutShop_Project\DonutShop\DonutShop\obj\Debug\net7.0\DonutShop.RazorAssemblyInfo.cs

@@ -1,0 +1,2 @@
+﻿dotnet ef migrations Add .... --project ZEEOutil.Infrastructure --startup-project ZEEOutil.UI
+dotnet ef database update --project ZEEOutil.Infrastructure --startup-project ZEEOutil.UI

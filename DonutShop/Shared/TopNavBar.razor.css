@@ -1,0 +1,23 @@
+﻿.topnavbar {
+    background-color: var(--color-melon);
+    overflow: hidden;
+    text-align: center;
+    border-radius: 25px;
+}
+    .topnavbar li {
+        border-radius: 22px; /* Creates rounded corners */
+        margin: 4px; /* Spacing between buttons */
+        background-color: var(--color-melon); /* Button color */
+        color: white; /* Text color */
+    }
+
+        .topnavbar li:hover {
+            background-color: #FFA6C1;
+        }
+
+        .topnavbar li.active {
+            border-radius: 22px;
+            background-color: #FF87AB;
+            color: white;
+        }
+

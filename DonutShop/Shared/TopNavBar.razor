@@ -1,0 +1,43 @@
+﻿@inject NavigationManager NavigationManager
+
+<div class="container">
+
+        <ul class="nav nav-pills nav-fill gap-2 p-1 small rounded-5 shadow-sm topnavbar bg-melon" id="" role="tablist" >
+           
+            <NavLink href="/" class="text-light text-decoration-none fs-4 fw-bold"> Sweet Rings </NavLink>
+            
+            <li>
+                <NavLink href="/" class="link-light nav-link rounded-5"  data-bs-toggle="tab" type="button" role="tab" > Home </NavLink>
+            </li>
+            <li>
+                <NavLink href="/about" class="link-light nav-link rounded-5" data-bs-toggle="tab" type="button" role="tab"> About </NavLink>
+            </li>
+            <li>
+                <NavLink href="/menu" class="link-light nav-link rounded-5" data-bs-toggle="tab" type="button" role="tab"> Menu </NavLink>
+            </li>
+            <li>
+                <NavLink href="/place-order" class="link-light nav-link rounded-5" data-bs-toggle="tab" type="button" role="tab" > Place Order </NavLink>
+            </li>
+            <li>
+                <NavLink href="/myorder" class="link-light nav-link rounded-5"  data-bs-toggle="tab" type="button" role="tab"> My Order </NavLink>
+            </li>
+            <li>
+                <div class="text-end">
+                    <NavLink href="/login" class="btn btn-primary">Login</NavLink>
+                    @* <button type="button" class="btn btn-primary" @onclick="LogoutAsync">Logout</button> *@
+                </div>
+            </li>
+
+        </ul>
+
+        
+</div>
+
+@code {
+
+    private async Task LogoutAsync()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
+}
