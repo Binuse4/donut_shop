@@ -4,46 +4,56 @@ namespace DonutShop.Services
 {
     public class OrderState
     {
-        public bool ShowingConfigureDialog { get; private set; }
-        public Pizza ConfiguringPizza { get; private set; }
+        public bool ShowingCustomeDialog { get; private set; }
+        public Donut? ConfiguringDonut { get; private set; }
         public Order Order { get; private set; } = new Order();
 
-        public void ShowConfigurePizzaDialog(PizzaSpecial special)
+        public event Action? OnChange;
+        public int ItemCount => Order.Donuts.Count;
+
+        public void ShowCustomizededDonutDialog(DonutSpecial special)
         {
-            ConfiguringPizza = new Pizza()
+            ConfiguringDonut = new Donut()
             {
                 Special = special,
                 SpecialId = special.Id,
-                Size = Pizza.DefaultSize,
-                Toppings = new List<PizzaTopping>(),
+                Quantity = Donut.InitialtNumber,
+                Decorations = new List<DonutDecoration>(),
             };
 
-            ShowingConfigureDialog = true;
+            ShowingCustomeDialog = true;
+            NotifyStateChanged();
         }
 
-        public void CancelConfigurePizzaDialog()
+        public void CancelCustomizededDonutDialog()
         {
-            ConfiguringPizza = null;
+            ConfiguringDonut = null;
 
-            ShowingConfigureDialog = false;
+            ShowingCustomeDialog = false;
+            NotifyStateChanged();
         }
 
-        public void ConfirmConfigurePizzaDialog()
+        public void ConfirmCustomizededDonutDialog()
         {
-            Order.Pizzas.Add(ConfiguringPizza);
-            ConfiguringPizza = null;
+            Order.Donuts.Add(ConfiguringDonut);
+            ConfiguringDonut = null;
 
-            ShowingConfigureDialog = false;
+            ShowingCustomeDialog = false;
+            NotifyStateChanged();
         }
 
-        public void RemoveConfiguredPizza(Pizza pizza)
+        public void RemoveCustomizedDonut(Donut donut)
         {
-            Order.Pizzas.Remove(pizza);
+            Order.Donuts.Remove(donut);
+            NotifyStateChanged();
         }
 
         public void ResetOrder()
         {
             Order = new Order();
+            NotifyStateChanged();
         }
+
+        private void NotifyStateChanged() => OnChange?.Invoke();
     }
 }

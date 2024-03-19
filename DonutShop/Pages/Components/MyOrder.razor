@@ -1,0 +1,61 @@
+﻿@page "/myorder"
+@using DonutShop.Models
+@layout MainLayout
+@inject NavigationManager NavigationManager
+@inject HttpClient HttpClient
+@using DonutShop.Services
+@using System.Text.Json
+@inject OrderState OrderState
+@inject IJSRuntime JavaScript
+
+
+<div class="listOfOrder">
+    @if (order.Donuts.Any())
+    {
+        <div class="order-contents">
+            <h2>Your order</h2>
+
+            @foreach (var configuredPizza in order.Donuts)
+            {
+                <div class="cart-item">
+                    <div class="title">@(configuredPizza.Quantity)" @configuredPizza.Special.Name</div>
+                    <div class="item-price">
+                        @configuredPizza.GetTotalPriceFormatted()
+                    </div>
+                    <button type="button" class="close text-danger" aria-label="Close"
+                            @onclick="@(async () => await RemoveDonutConfirmation(configuredPizza))">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="empty-cart">Choose a pizza<br>to get started</div>
+    }
+
+    <div class="order-total @(order.Donuts.Any() ? "" : "hidden")">
+        Total:
+        <span class="total-price">@order.GetFormattedTotalPrice()</span>
+        <a href="checkout" class="@(OrderState.Order.Donuts.Count == 0 ? "btn btn-warning disabled" : "btn btn-warning")">
+            Order >
+        </a>
+    </div>
+</div>
+
+@code {
+
+    Order order => OrderState.Order;
+
+    async Task RemoveDonutConfirmation(Donut removeDonut)
+    {
+        if (await JavaScript.InvokeAsync<bool>(
+            "confirm",
+            $"""Do you want to remove the "{removeDonut.Special!.Name}" from your order?"""))
+        {
+            OrderState.RemoveCustomizedDonut(removeDonut);
+        }
+    }
+}
+ 

@@ -4,7 +4,8 @@ namespace DonutShop.Models
 {
     public class DonutSpecial
     {
-        [Key] public Guid Id { get; set; }
+        [Key] 
+        public int Id { get; set; }
 
         public string Name { get; set; }
 
@@ -13,6 +14,7 @@ namespace DonutShop.Models
         public string Description { get; set; }
 
         public string ImageUrl { get; set; }
+        public int? FixedQuantity { get; set; }
 
         public string GetFormattedBasePrice() => BasePrice.ToString("0.00");
     }

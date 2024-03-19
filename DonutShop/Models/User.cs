@@ -4,7 +4,7 @@ namespace DonutShop.Models
 {
     public class User
     {
-        [Key] public Guid Id { get; set; } = Guid.NewGuid();
+        [Key] public int Id { get; set; } 
         public bool IsAuthenticated { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }

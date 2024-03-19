@@ -1,24 +1,25 @@
-﻿@inject HttpClient HttpClient
+﻿@using DonutShop.Models
+@inject HttpClient HttpClient
 
 <div class="dialog-container">
     <div class="dialog">
         <div class="dialog-title">
-            <h2>@Pizza.Special.Name</h2>
-            @Pizza.Special.Description
+            <h2>@Donut.Special.Name</h2>
+            @Donut.Special.Description
         </div>
         <form class="dialog-body">
             <div>
                 @* <label>Size:</label>
                 <input type="range" min="@Pizza.MinimumSize" max="@Pizza.MaximumSize" step="1" @bind="Pizza.Size" @bind:event="oninput"/>
                 *@
-                @if (supportSizing)
+                @if (supportNumber)
                 {
-                    <label>Size:</label>
-                    <input type="range" min="@Pizza.MinimumSize" max="@Pizza.MaximumSize"
-                           step="1" @bind="Pizza.Size" @bind:event="oninput" />
+                    <label>Quantity :</label>
+                    <input type="range" min="@Donut.InitialtNumber" max="@Donut.MaximumNumber"
+                           step="1" @bind="Donut.Quantity" @bind:event="oninput" />
                 }
                 <span class="size-label">
-                    @(Pizza.Size)" (£@(Pizza.GetFormattedTotalPrice()))
+                    @(Donut.Quantity)" (€@(Donut.GetTotalPriceFormatted()))
                 </span>
             </div>
         </form>
@@ -26,14 +27,15 @@
         <div class="dialog-buttons">
             <button class="btn btn-secondary mr-auto" @onclick="OnCancel">Cancel</button>
             <span class="mr-center">
-                Price: <span class="price">@(Pizza.GetFormattedTotalPrice())</span>
+                Price: <span class="price">@(Donut.GetTotalPriceFormatted())</span>
             </span>
-            <button class="btn btn-success ml-auto" @onclick="OnConfirm">Order ></button>
+            <button class="dialog-btn ml-auto" @onclick="OnConfirm">Order now</button>
         </div>
     </div>
 </div>
 
 @code {
+
     [Parameter]
     public Donut Donut { get; set; }
     [Parameter]
@@ -45,9 +47,9 @@
 
     protected override void OnInitialized()
     {
-        if (Pizza is { Special.FixedSize: not null })
+        if (Donut is { Special.FixedQuantity: not null })
         {
-            Pizza.Size = Pizza.Special.FixedSize.Value;
+            Donut.Quantity = Donut.Special.FixedQuantity.Value;
             supportNumber = false;
         }
     }

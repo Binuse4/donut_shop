@@ -1,0 +1,22 @@
+﻿@using DonutShop.Models
+@foreach (var donut in Order.Donuts)
+{
+    <p>
+        <strong>
+            @(donut.Quantity)"
+            @donut.Special.Name
+            (€@donut.GetTotalPriceFormatted())
+        </strong>
+    </p>
+}
+
+<p>
+    <strong>
+        Total price:
+        £@Order.GetFormattedTotalPrice()
+    </strong>
+</p>
+
+@code {
+    [Parameter] public Order Order { get; set; }
+}

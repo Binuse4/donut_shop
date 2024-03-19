@@ -15,10 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Data\Entities\" />
-    <Folder Include="Pages\Components\" />
-    <Folder Include="wwwroot\img\donuts\" />
     <Folder Include="wwwroot\img\decorations\" />
   </ItemGroup>
 

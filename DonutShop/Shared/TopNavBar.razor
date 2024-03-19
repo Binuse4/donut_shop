@@ -1,4 +1,6 @@
 ﻿@inject NavigationManager NavigationManager
+@using DonutShop.Services
+@inject OrderState OrderState
 
 <div class="container">
 
@@ -16,10 +18,7 @@
                 <NavLink href="/menu" class="link-light nav-link rounded-5" data-bs-toggle="tab" type="button" role="tab"> Menu </NavLink>
             </li>
             <li>
-                <NavLink href="/place-order" class="link-light nav-link rounded-5" data-bs-toggle="tab" type="button" role="tab" > Place Order </NavLink>
-            </li>
-            <li>
-                <NavLink href="/myorder" class="link-light nav-link rounded-5"  data-bs-toggle="tab" type="button" role="tab"> My Order </NavLink>
+            <NavLink href="/myorder" class="link-light nav-link rounded-5" data-bs-toggle="tab" type="button" role="tab"> My Order <span class="badge">@OrderState.ItemCount</span> </NavLink>
             </li>
             <li>
                 <div class="text-end">
@@ -40,4 +39,13 @@
         NavigationManager.NavigateTo("/");
     }
 
+    protected override void OnInitialized()
+    {
+        OrderState.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        OrderState.OnChange -= StateHasChanged;
+    }
 }

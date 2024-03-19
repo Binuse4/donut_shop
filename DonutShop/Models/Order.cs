@@ -4,7 +4,8 @@ namespace DonutShop.Models
 {
     public class Order
     {
-        [Key] public Guid OrderId { get; set; } 
+        [Key] 
+        public int OrderId { get; set; } 
 
         public string UserId { get; set; }
 

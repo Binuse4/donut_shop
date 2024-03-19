@@ -24,25 +24,31 @@ namespace DonutShop.Migrations
 
             modelBuilder.Entity("DonutShop.Models.Address", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Line1")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Line2")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("PostalCode")
                         .IsRequired()
@@ -50,7 +56,8 @@ namespace DonutShop.Migrations
 
                     b.Property<string>("Region")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
@@ -59,9 +66,11 @@ namespace DonutShop.Migrations
 
             modelBuilder.Entity("DonutShop.Models.Decoration", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -77,73 +86,73 @@ namespace DonutShop.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2fb56f52-d68c-4205-935b-b0c0fbfd3608"),
+                            Id = 1,
                             Name = "Oreo",
                             Price = 1.99m
                         },
                         new
                         {
-                            Id = new Guid("8007c9e3-0f4a-4998-bb05-a77c7e05ef14"),
+                            Id = 2,
                             Name = "Milk chocolate Sauce",
                             Price = 1.99m
                         },
                         new
                         {
-                            Id = new Guid("953acd5b-a516-47da-9054-b1b30c6b6716"),
+                            Id = 3,
                             Name = "Dark chocolate Sauce",
                             Price = 1.99m
                         },
                         new
                         {
-                            Id = new Guid("f369abc4-ee2a-418b-8d6e-015f7d32d875"),
+                            Id = 4,
                             Name = "Cookie",
                             Price = 1.99m
                         },
                         new
                         {
-                            Id = new Guid("a6507d7a-7983-4791-b8ce-da7a4dca7e0a"),
+                            Id = 5,
                             Name = "Kit Kat",
                             Price = 1.99m
                         },
                         new
                         {
-                            Id = new Guid("f11ec3e8-6b95-4cec-9434-0b265be8113f"),
+                            Id = 6,
                             Name = "Kinder Bueno",
                             Price = 1.99m
                         },
                         new
                         {
-                            Id = new Guid("e670bbf0-0d8e-4a7d-b37f-14b2fccd9ab9"),
+                            Id = 7,
                             Name = "Kinder Country",
                             Price = 1.99m
                         },
                         new
                         {
-                            Id = new Guid("c888bb18-13e7-4b97-8536-760c1a3851a5"),
+                            Id = 8,
                             Name = "M&M's",
                             Price = 1.99m
                         },
                         new
                         {
-                            Id = new Guid("a1e03fa1-0ad8-4639-8d04-593de8e30f00"),
+                            Id = 9,
                             Name = "Speculoos",
                             Price = 1.99m
                         },
                         new
                         {
-                            Id = new Guid("8f5d524a-5b11-4f52-a1ab-9d426dd7d988"),
+                            Id = 10,
                             Name = "Nutella",
                             Price = 1.99m
                         },
                         new
                         {
-                            Id = new Guid("dfe11920-410a-4597-be5c-a75f1c0de696"),
+                            Id = 11,
                             Name = "White chocolate Sauce",
                             Price = 1.99m
                         },
                         new
                         {
-                            Id = new Guid("67fffa43-5707-4731-82b0-5da038317510"),
+                            Id = 12,
                             Name = "Milka",
                             Price = 1.99m
                         });
@@ -151,30 +160,26 @@ namespace DonutShop.Migrations
 
             modelBuilder.Entity("DonutShop.Models.Donut", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("OrderId1")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Size")
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<int>("SpecialId")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("SpecialId1")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderId1");
+                    b.HasIndex("OrderId");
 
-                    b.HasIndex("SpecialId1");
+                    b.HasIndex("SpecialId");
 
                     b.ToTable("Donuts");
                 });
@@ -187,26 +192,20 @@ namespace DonutShop.Migrations
                     b.Property<int>("DecorationId")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("DecorationId1")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("DonutId1")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("DonutId", "DecorationId");
 
-                    b.HasIndex("DecorationId1");
-
-                    b.HasIndex("DonutId1");
+                    b.HasIndex("DecorationId");
 
                     b.ToTable("DonutDecoration");
                 });
 
             modelBuilder.Entity("DonutShop.Models.DonutSpecial", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<decimal>("BasePrice")
                         .HasColumnType("decimal(18,2)");
@@ -214,6 +213,9 @@ namespace DonutShop.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("FixedQuantity")
+                        .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
@@ -230,97 +232,99 @@ namespace DonutShop.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("12dfbb90-cf1c-4d2a-922c-7350ffca0e6f"),
+                            Id = 1,
                             BasePrice = 11.99m,
                             Description = "Speculoos cream topping, Speculoos Flakes , Speculoos",
-                            ImageUrl = "img/donuts/",
+                            ImageUrl = "img/donuts/speculos.png",
                             Name = "Speculoos"
                         },
                         new
                         {
-                            Id = new Guid("a20dc365-2946-49c8-8434-76b9fad33a0f"),
+                            Id = 2,
                             BasePrice = 9.99m,
                             Description = "Vanilla Napage, Vanilla Oreo bits , Oreo",
-                            ImageUrl = "img/donuts/",
+                            ImageUrl = "img/donuts/oreo.png",
                             Name = "Oreo"
                         },
                         new
                         {
-                            Id = new Guid("b9a22a3b-6c9b-45c2-a778-5fadf7821cf4"),
+                            Id = 3,
                             BasePrice = 10.50m,
                             Description = "Milk chocolate topping, Crushed M&M's, Chocolate peanut M&M's",
-                            ImageUrl = "img/donuts",
+                            ImageUrl = "img/donuts/mms.png",
                             Name = "M&M's"
                         },
                         new
                         {
-                            Id = new Guid("4b25ff4a-7a9b-46a3-8c73-79dd7ad2a028"),
+                            Id = 4,
                             BasePrice = 12.75m,
                             Description = "Nutella topping, Nutella cookie",
-                            ImageUrl = "img/donuts/",
+                            ImageUrl = "img/donuts/nutella.png",
                             Name = "Nutella"
                         },
                         new
                         {
-                            Id = new Guid("2b1717c1-a66b-44d3-a15f-0399e09e9baa"),
+                            Id = 5,
                             BasePrice = 11.00m,
                             Description = "White chocolate topping, Caramel rice souffle, Kinder Country",
-                            ImageUrl = "img/donuts/",
-                            Name = "Country"
+                            ImageUrl = "img/donuts/kinder_country.png",
+                            Name = "Kinder Country"
                         },
                         new
                         {
-                            Id = new Guid("9dbd2105-57f1-4e47-be43-14f069ec4185"),
+                            Id = 6,
                             BasePrice = 11.50m,
                             Description = "Bueno cream topping, Chocolate coulis, Kinder Bueno",
-                            ImageUrl = "img/donuts/",
+                            ImageUrl = "img/donuts/bueno.png",
                             Name = "Kinder Bueno"
                         },
                         new
                         {
-                            Id = new Guid("0e9b19bd-9c0a-4002-b02b-16c1eb1ad37d"),
+                            Id = 7,
                             BasePrice = 9.99m,
                             Description = "Milk chocolate topping, Crushed Kit Kat, Kit Kat ",
-                            ImageUrl = "img/donuts/",
+                            ImageUrl = "img/donuts/kitkat.png",
                             Name = "Kit Kat"
                         },
                         new
                         {
-                            Id = new Guid("4562c792-4402-4fe8-bcdb-d91dff493efe"),
+                            Id = 8,
                             BasePrice = 9.99m,
                             Description = "Traditional Donut , Powdered sugar ",
-                            ImageUrl = "img/donuts/",
+                            ImageUrl = "img/donuts/nature.png",
                             Name = "Natural"
                         },
                         new
                         {
-                            Id = new Guid("63e4f9ad-451e-4b9c-b52f-8a294e83e5d5"),
+                            Id = 9,
                             BasePrice = 9.99m,
                             Description = "Traditional Donut , Caramelized sugar ",
-                            ImageUrl = "img/donuts/",
+                            ImageUrl = "img/donuts/sugarGlazed.png",
                             Name = "Glazed"
                         },
                         new
                         {
-                            Id = new Guid("a6e14ea4-f057-4919-be7e-0090d4a7f26f"),
+                            Id = 10,
                             BasePrice = 11.00m,
                             Description = "Chocolate topping, cookie",
-                            ImageUrl = "img/donuts/",
+                            ImageUrl = "img/donuts/chocolat.png",
                             Name = "Chocolat"
                         });
                 });
 
             modelBuilder.Entity("DonutShop.Models.Order", b =>
                 {
-                    b.Property<Guid>("OrderId")
+                    b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"));
 
                     b.Property<DateTime>("CreatedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("DeliveryAddressId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("DeliveryAddressId")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -337,11 +341,13 @@ namespace DonutShop.Migrations
                 {
                     b.HasOne("DonutShop.Models.Order", null)
                         .WithMany("Donuts")
-                        .HasForeignKey("OrderId1");
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("DonutShop.Models.DonutSpecial", "Special")
                         .WithMany()
-                        .HasForeignKey("SpecialId1")
+                        .HasForeignKey("SpecialId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -352,13 +358,15 @@ namespace DonutShop.Migrations
                 {
                     b.HasOne("DonutShop.Models.Decoration", "Decoration")
                         .WithMany()
-                        .HasForeignKey("DecorationId1")
+                        .HasForeignKey("DecorationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("DonutShop.Models.Donut", null)
                         .WithMany("Decorations")
-                        .HasForeignKey("DonutId1");
+                        .HasForeignKey("DonutId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Decoration");
                 });
